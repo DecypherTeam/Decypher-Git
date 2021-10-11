@@ -790,7 +790,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e1e3a12deac08d84785fbf23e9e38016,
         type: 3}
       propertyPath: m_Name
-      value: tree wo texture (2)
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: e1e3a12deac08d84785fbf23e9e38016,
         type: 3}
@@ -1215,8 +1215,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9951907, y: 1.1745327, z: 2.116679}
-  m_Center: {x: -0.05143047, y: 0.08726725, z: -0.10721087}
+  m_Size: {x: 1.0663042, y: 1.0437049, z: 1.1685102}
+  m_Center: {x: -0.012737937, y: 0.021853948, z: 0.018613582}
 --- !u!23 &1244870917
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1276,7 +1276,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.15, y: 0.9407203, z: -6.49}
   m_LocalScale: {x: 0.48172, y: 0.48172, z: 0.48172}
-  m_Children: []
+  m_Children:
+  - {fileID: 1308349580}
   m_Father: {fileID: 1232854942}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1296,6 +1297,63 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!1 &1308349579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308349580}
+  - component: {fileID: 1308349581}
+  - component: {fileID: 1308349582}
+  m_Layer: 0
+  m_Name: Plant Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1308349580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308349579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1244870919}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1308349581
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308349579}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.6378736, y: 0.99999917, z: 4.195215}
+  m_Center: {x: -0.034708828, y: 0, z: -0.18893948}
+--- !u!114 &1308349582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308349579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c5ffc0dba1c244c820cbd28732f4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1336859110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,7 +1752,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e1e3a12deac08d84785fbf23e9e38016,
         type: 3}
       propertyPath: m_Name
-      value: tree wo texture
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: e1e3a12deac08d84785fbf23e9e38016,
         type: 3}
@@ -2183,7 +2241,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e1e3a12deac08d84785fbf23e9e38016,
         type: 3}
       propertyPath: m_Name
-      value: tree wo texture (1)
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: e1e3a12deac08d84785fbf23e9e38016,
         type: 3}
@@ -5949,13 +6007,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4f2843ed0e8b74f81c65e8d79638bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
   bulletDest: {fileID: 1697333288}
   range: 50
   secondCamera: {fileID: 44638388}
   pickUpDest: {fileID: 1352676329}
   pickItem: {fileID: 1244870920}
-  pickedItem: 1
 --- !u!124 &8390943013129311470
 Behaviour:
   m_ObjectHideFlags: 0
@@ -5978,7 +6034,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: -0.7, z: 4.4}
@@ -6014,7 +6070,7 @@ GameObject:
   - component: {fileID: 8390943013128278574}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
