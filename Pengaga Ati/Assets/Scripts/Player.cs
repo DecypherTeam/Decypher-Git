@@ -4,7 +4,7 @@ using TouchControlsKit;
 namespace Examples
 {
     public class Player : MonoBehaviour
-    {
+    {   //testing
         bool binded;
         Transform myTransform, cameraTransform;
         CharacterController controller;
