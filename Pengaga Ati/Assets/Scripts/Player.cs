@@ -12,7 +12,6 @@ namespace Examples
         bool jump, prevGrounded;
         float weapReadyTime;
         bool weapReady = true;
-        public bool speed;
 
         public Transform bulletDest;
         public float range;
@@ -23,7 +22,7 @@ namespace Examples
         public Transform pickUpDest;
         public Rigidbody pickItem;
 
-        public bool pickedItem = true;
+        public static bool pickedItem;
 
         // Awake
         void Awake()
@@ -58,7 +57,7 @@ namespace Examples
                 if (pickedItem == false)
                 {
                     PickUp();
-                }  
+                }
             }
 
             // Assigning the item to drop when the button is not pressed
@@ -81,6 +80,8 @@ namespace Examples
         // FixedUpdate
         void FixedUpdate()
         {
+            pickedItem = true;
+
             /*float moveX = TCKInput.GetAxis( "Joystick", EAxisType.Horizontal );
             float moveY = TCKInput.GetAxis( "Joystick", EAxisType.Vertical );*/
             
@@ -162,7 +163,7 @@ namespace Examples
         }
 
         // PlayerPickUp
-        private void OnControllerColliderHit(ControllerColliderHit hit)
+        /*private void OnControllerColliderHit(ControllerColliderHit hit)
         {
             // When players get close to items with tag "PickUp"
             if (hit.gameObject.tag.Equals("PickUp"))
@@ -173,7 +174,7 @@ namespace Examples
             {
                 pickedItem = true;
             }
-        }
+        }*/
 
         private void PickUp()
         {
