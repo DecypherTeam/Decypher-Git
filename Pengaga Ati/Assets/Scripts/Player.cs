@@ -31,7 +31,7 @@ namespace Examples
             cameraTransform = Camera.main.transform;
             controller = GetComponent<CharacterController>();
 
-            secondCamera.transform.position = new Vector3(0.5f, 3.4f, transform.position.z);
+            //secondCamera.transform.position = new Vector3(0.5f, 3.4f, transform.position.z);
         }
 
         // Update
