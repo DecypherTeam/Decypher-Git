@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: a85bdb8cca481ba43b0b2a546d675be3
+guid: d39b1f9f6cc76f34086da8d058c28e62
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rimong
-    second: {fileID: 2100000, guid: cd80f73d344fbe5429fbb4efa57bbc4b, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
