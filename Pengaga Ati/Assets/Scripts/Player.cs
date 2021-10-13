@@ -23,6 +23,9 @@ namespace Examples
         public Rigidbody pickItem;
 
         public static bool pickedItem;
+        public bool playerMove = false;
+
+        public GameObject joystick;
 
         Animator animator;
 
@@ -95,6 +98,12 @@ namespace Examples
             // Assign the movement of the character to a joystick
             Vector2 move = TCKInput.GetAxis( "Joystick" ); // NEW func since ver 1.5.5
             PlayerMovement( move.x, move.y );
+
+            /*if (joystick.transform.position.top > 0)
+            {
+                Debug.Log("more than 0");
+                //animator.SetBool("isRunning", true);
+            }*/
         }
 
 
@@ -113,14 +122,22 @@ namespace Examples
 
             bool grounded = controller.isGrounded;
 
-            Vector3 moveDirection = myTransform.forward * vertical;
-            moveDirection += myTransform.right * horizontal;
+            Vector3 moveDirection = myTransform.forward * vertical * 2f;
+            moveDirection += myTransform.right * horizontal * 1f;
 
             moveDirection.y = -10f;
 
-            animator.SetBool("isRunning", true);
+            /*if (moveDirection.z > 0f)
+            {
+                playerMove = true;
+            }
+            else
+            {
+                playerMove = false;
+            }*/
+            //playerMove = true;
 
-            if( jump )
+            if ( jump )
             {
                 jump = false;
                 moveDirection.y = 25f;
