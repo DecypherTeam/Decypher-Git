@@ -24,6 +24,8 @@ namespace Examples
 
         public static bool pickedItem;
 
+        Animator animator;
+
         // Awake
         void Awake()
         {
@@ -32,6 +34,11 @@ namespace Examples
             controller = GetComponent<CharacterController>();
 
             //secondCamera.transform.position = new Vector3(0.5f, 3.4f, transform.position.z);
+        }
+
+        void Start()
+        {
+            animator = GetComponent<Animator>();
         }
 
         // Update
@@ -110,6 +117,8 @@ namespace Examples
             moveDirection += myTransform.right * horizontal;
 
             moveDirection.y = -10f;
+
+            animator.SetBool("isRunning", true);
 
             if( jump )
             {
