@@ -8,7 +8,7 @@ namespace Examples
     public class PlayerInteraction : MonoBehaviour
     {
         Player player;
-        FarmingLand selectedLand = null;
+        //FarmingLand selectedLand = null;
 
         // Start is called before the first frame update
         void Start()
@@ -35,23 +35,23 @@ namespace Examples
             //Check if player is going to interact with land
             if(other.tag == "Land")
             {
-                Debug.Log("select");
+                //Debug.Log("select");
                 // Get the farming land script component
-                FarmingLand farmingLand = other.GetComponent<FarmingLand>();
-                SelectLand(farmingLand);
-                return;
+                FarmingLand land = other.GetComponent<FarmingLand>();
+                land.Select(true);
+                //return;
             }
 
             //Deselect the land if the player is not standing on any land at the moment
-            if(selectedLand != null)
+            /*if(selectedLand != null)
             {
                 selectedLand.Select(false);
                 selectedLand = null;
-            }
+            }*/
         }
 
         //Handles the selection process
-        void SelectLand(FarmingLand farmingLand)
+        /*void SelectLand(FarmingLand farmingLand)
         {
             //Set the previously selected land to false (If any)
             if(selectedLand != null)
@@ -62,7 +62,7 @@ namespace Examples
             //Set the new selected land to the land we're selecting now
             selectedLand = farmingLand;
             farmingLand.Select(true);
-        }
+        }*/
 
     }
 }
