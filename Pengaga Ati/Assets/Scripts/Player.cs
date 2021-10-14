@@ -101,7 +101,7 @@ namespace Examples
             Vector2 move = TCKInput.GetAxis( "Joystick" ); // NEW func since ver 1.5.5
             PlayerMovement( move.x, move.y );
 
-            /*if (joystick.transform.position.top > 0)
+            /*if (TCKInput.GetAxis("Joystick", EAxisType.Horizontal))
             {
                 Debug.Log("more than 0");
                 //animator.SetBool("isRunning", true);
