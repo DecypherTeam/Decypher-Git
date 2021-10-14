@@ -99,12 +99,13 @@ namespace Examples
             
             // Assign the movement of the character to a joystick
             Vector2 move = TCKInput.GetAxis( "Joystick" ); // NEW func since ver 1.5.5
-            PlayerMovement( move.x, move.y );
+            PlayerMovement(move.x, move.y);
+
 
             /*if (TCKInput.GetAxis("Joystick", EAxisType.Horizontal))
             {
                 Debug.Log("more than 0");
-                //animator.SetBool("isRunning", true);
+                //
             }*/
         }
 
@@ -127,17 +128,22 @@ namespace Examples
             Vector3 moveDirection = myTransform.forward * vertical * 2f;
             moveDirection += myTransform.right * horizontal * 1f;
 
+            /*if (moveDirection.z == 0f)
+            {
+                moveDirection = Vector3.zero;
+                Debug.Log("Stop");
+            }*/
+
             moveDirection.y = -10f;
 
-            /*if (moveDirection.z > 0f)
+            if (moveDirection.z < 0f || moveDirection.z > 0f)
             {
-                playerMove = true;
+                animator.SetBool("isRunning", true);
             }
             else
             {
-                playerMove = false;
-            }*/
-            //playerMove = true;
+                animator.SetBool("isRunning", false);
+            }
 
             if ( jump )
             {
@@ -150,10 +156,11 @@ namespace Examples
                 moveDirection *= 5f;
             
             controller.Move( moveDirection * Time.fixedDeltaTime);
+            moveDirection = Vector3.zero;
 
             if( !prevGrounded && grounded )
                 moveDirection.y = 0f;
-
+  
             prevGrounded = grounded;
         }
 
