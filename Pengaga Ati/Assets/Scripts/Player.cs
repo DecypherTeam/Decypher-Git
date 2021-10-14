@@ -67,6 +67,7 @@ namespace Examples
                 if (pickedItem == false)
                 {
                     PickUp();
+                    animator.SetBool("isPickup", true);
                 }
             }
 
@@ -74,6 +75,7 @@ namespace Examples
             if (TCKInput.GetAction("pickBtn", EActionEvent.Up))
             {
                 PickDown();
+                animator.SetBool("isPickup", false);
             }
 
             // Assigning the shooting mechanics to the shooting button

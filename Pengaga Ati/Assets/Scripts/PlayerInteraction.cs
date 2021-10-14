@@ -35,6 +35,7 @@ namespace Examples
             //Check if player is going to interact with land
             if(other.tag == "Land")
             {
+                Debug.Log("select");
                 // Get the farming land script component
                 FarmingLand farmingLand = other.GetComponent<FarmingLand>();
                 SelectLand(farmingLand);
@@ -47,12 +48,6 @@ namespace Examples
                 selectedLand.Select(false);
                 selectedLand = null;
             }
-
-            /*if (other.tag == "PickUp")
-            {
-                Debug.Log("Pick Up");
-                player.pickedItem = false;
-            }*/
         }
 
         //Handles the selection process
