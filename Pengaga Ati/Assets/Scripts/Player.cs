@@ -94,8 +94,8 @@ namespace Examples
         {
             pickedItem = true;
 
-            /*float moveX = TCKInput.GetAxis( "Joystick", EAxisType.Horizontal );
-            float moveY = TCKInput.GetAxis( "Joystick", EAxisType.Vertical );*/
+            //float moveX = TCKInput.GetAxis( "Joystick", EAxisType.Horizontal );
+            //float moveY = TCKInput.GetAxis( "Joystick", EAxisType.Vertical );
             
             // Assign the movement of the character to a joystick
             Vector2 move = TCKInput.GetAxis( "Joystick" ); // NEW func since ver 1.5.5
