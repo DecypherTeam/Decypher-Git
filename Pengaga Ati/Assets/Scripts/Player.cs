@@ -128,12 +128,6 @@ namespace Examples
             Vector3 moveDirection = myTransform.forward * vertical * 2f;
             moveDirection += myTransform.right * horizontal * 1f;
 
-            /*if (moveDirection.z == 0f)
-            {
-                moveDirection = Vector3.zero;
-                Debug.Log("Stop");
-            }*/
-
             moveDirection.y = -10f;
 
             if (moveDirection.z < 0f || moveDirection.z > 0f)
