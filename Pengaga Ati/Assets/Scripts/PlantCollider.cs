@@ -10,7 +10,7 @@ namespace Examples
         {
             if (other.tag == "Player")
             {
-                Debug.Log("Player Pick");
+                //Debug.Log("Player Pick");
                 Player.pickedItem = false;
             }
         }
