@@ -23,7 +23,7 @@ namespace Examples
         public Rigidbody pickItem;
 
         public static bool pickedItem;
-        public bool playerMove = false;
+        public bool playerShoot = false;
 
         public GameObject joystick;
 
@@ -82,6 +82,14 @@ namespace Examples
             if ( TCKInput.GetAction( "fireBtn", EActionEvent.Press ) )
             {
                 PlayerFiring();
+                animator.SetBool("isShooting", true);
+                secondCamera.gameObject.SetActive(true);
+                playerShoot = true;
+            }
+            else
+            {
+                animator.SetBool("isShooting", false);
+                playerShoot = false;
             }
 
             // Navigating the camera angles according to the player's touch on the touchpad area of the screen
@@ -128,6 +136,12 @@ namespace Examples
             Vector3 moveDirection = myTransform.forward * vertical * 2f;
             moveDirection += myTransform.right * horizontal * 1f;
 
+            if(playerShoot == true)
+            {
+                moveDirection = myTransform.forward * vertical * 0.5f;
+                moveDirection += myTransform.right * horizontal * 0.5f;
+            }
+
             moveDirection.y = -10f;
 
             if (moveDirection.z < 0f || moveDirection.z > 0f)
@@ -171,10 +185,11 @@ namespace Examples
         public void PlayerFiring()
         {
             // Camera zooms in on the screen when player shoots
-            secondCamera.gameObject.SetActive(true);
+            
 
             // Crosshair enabled when shooting
             //crosshair.gameObject.SetActive(true);
+
 
             if ( !weapReady )
                 return;

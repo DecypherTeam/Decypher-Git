@@ -257,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &44638385
 Transform:
   m_ObjectHideFlags: 0
@@ -13452,7 +13452,7 @@ MonoBehaviour:
   secondCamera: {fileID: 44638388}
   pickUpDest: {fileID: 1352676329}
   pickItem: {fileID: 1244870920}
-  playerMove: 0
+  playerShoot: 0
   joystick: {fileID: 3308325049753966822}
 --- !u!124 &8390943013129311470
 Behaviour:
