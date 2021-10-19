@@ -21,13 +21,15 @@ namespace Examples
 
         public Transform pickUpDest;
         public Rigidbody pickItem;
-
         public bool pickedItem;
+
         public bool playerShoot = false;
 
         public GameObject joystick;
 
         Animator animator;
+
+        PlantInteraction plantInteraction;
 
         // Awake
         void Awake()
@@ -42,6 +44,9 @@ namespace Examples
         void Start()
         {
             animator = GetComponent<Animator>();
+
+            GameObject thePlant = GameObject.Find("Plant1");
+            plantInteraction = thePlant.GetComponent<PlantInteraction>();
         }
 
         // Update
@@ -74,7 +79,7 @@ namespace Examples
             // Assigning the item to drop when the button is not pressed
             if (TCKInput.GetAction("pickBtn", EActionEvent.Up))
             {
-                if(PlantInteraction.isDestroyed != true)
+                if(plantInteraction.isDestroyed != true)
                 {
                     PickDown();
                     animator.SetBool("isPickup", false);
@@ -240,7 +245,7 @@ namespace Examples
             pickItem.useGravity = true;
             pickedItem = true;
 
-            if (PlantInteraction.isDestroyed == true)
+            if (plantInteraction.isDestroyed == true)
             {
                 pickItem = null;
             }

@@ -6,13 +6,13 @@ namespace Examples
 {
     public class PlantInteraction : MonoBehaviour
     {
-        public static bool isDestroyed = false;
-
+        public bool isDestroyed = false;
+        
         public void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.tag == "Land")
             {
-                Debug.Log("planted");
+                //Debug.Log("planted");
                 Destroy(gameObject);
                 isDestroyed = true;
             }
