@@ -17,7 +17,7 @@ public class PatrolDestSec : MonoBehaviour
 
             if (pivotPoint == 4)
             {
-                this.gameObject.transform.position = new Vector3(12.29f, 1.54f, 12.18f);
+                this.gameObject.transform.position = new Vector3(-4.35f, 1.54f, 12.18f);
                 pivotPoint = 5;
             }
 
