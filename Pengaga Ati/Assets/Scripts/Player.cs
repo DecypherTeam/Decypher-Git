@@ -22,7 +22,7 @@ namespace Examples
         public Transform pickUpDest;
         public Rigidbody pickItem;
 
-        public static bool pickedItem;
+        public bool pickedItem;
         public bool playerShoot = false;
 
         public GameObject joystick;
@@ -74,8 +74,11 @@ namespace Examples
             // Assigning the item to drop when the button is not pressed
             if (TCKInput.GetAction("pickBtn", EActionEvent.Up))
             {
-                PickDown();
-                animator.SetBool("isPickup", false);
+                if(PlantInteraction.isDestroyed != true)
+                {
+                    PickDown();
+                    animator.SetBool("isPickup", false);
+                } 
             }
 
             // Assigning the shooting mechanics to the shooting button
@@ -236,6 +239,11 @@ namespace Examples
             pickItem.transform.parent = null;
             pickItem.useGravity = true;
             pickedItem = true;
+
+            if (PlantInteraction.isDestroyed == true)
+            {
+                pickItem = null;
+            }
         }
 
 

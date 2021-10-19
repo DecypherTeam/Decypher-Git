@@ -8,17 +8,22 @@ namespace Examples
     {
         public GameObject select;
 
-        public Rigidbody pickItem;
+        //public Rigidbody pickItem;
+        //public Transform placementDest;
 
         public void Select(bool toggle)
         {
             select.SetActive(toggle);
         }
 
-        void onPlant()
+        /*public void OnCollisionEnter(Collision collision)
         {
-
-        }
+            if (collision.gameObject.tag == "PickUp")
+            {
+                Debug.Log("planted");
+                Destroy(pickItem);
+            }
+        }*/
     }
 }
 
