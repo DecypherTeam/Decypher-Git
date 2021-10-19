@@ -8,9 +8,16 @@ namespace Examples
     {
         public GameObject select;
 
+        public Rigidbody pickItem;
+
         public void Select(bool toggle)
         {
             select.SetActive(toggle);
+        }
+
+        void onPlant()
+        {
+
         }
     }
 }
