@@ -1595,7 +1595,7 @@ GameObject:
   - component: {fileID: 322523929}
   - component: {fileID: 322523928}
   m_Layer: 0
-  m_Name: ChicDest (3)
+  m_Name: ChicDest 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3601,7 +3601,7 @@ GameObject:
   - component: {fileID: 737651927}
   - component: {fileID: 737651926}
   m_Layer: 0
-  m_Name: ChicDest (2)
+  m_Name: ChicDest 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6398,7 +6398,7 @@ GameObject:
   - component: {fileID: 1152748155}
   - component: {fileID: 1152748154}
   m_Layer: 0
-  m_Name: ChicDest (1)
+  m_Name: ChicDest 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
