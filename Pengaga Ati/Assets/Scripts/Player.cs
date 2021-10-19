@@ -22,6 +22,8 @@ namespace Examples
         public Transform pickUpDest;
         public Rigidbody pickItem;
         public bool pickedItem;
+        public Rigidbody pickChic;
+        public bool pickedChic;
 
         public bool playerShoot = false;
 
@@ -74,6 +76,11 @@ namespace Examples
                     PickUp();
                     animator.SetBool("isPickup", true);
                 }
+
+                if (pickedChic == false)
+                {
+                    PickChicUp();
+                }
             }
 
             // Assigning the item to drop when the button is not pressed
@@ -109,6 +116,8 @@ namespace Examples
         void FixedUpdate()
         {
             pickedItem = true;
+
+            pickedChic = true;
 
             //float moveX = TCKInput.GetAxis( "Joystick", EAxisType.Horizontal );
             //float moveY = TCKInput.GetAxis( "Joystick", EAxisType.Vertical );
@@ -251,6 +260,14 @@ namespace Examples
             }
         }
 
+        private void PickChicUp()
+        {
+            Debug.Log("Pick Chicken");
+            pickChic.useGravity = false;
+            pickChic.transform.position = pickUpDest.position;
+            pickChic.transform.parent = GameObject.Find("PickUpDestination").transform;
+            pickChic.constraints = RigidbodyConstraints.FreezeAll;
+        }
 
         // PlayerClicked
         public void PlayerClicked()
