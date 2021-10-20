@@ -80,6 +80,7 @@ namespace Examples
                 if (pickedChic == false)
                 {
                     PickChicUp();
+                    animator.SetBool("isPickup", true);
                 }
             }
 
