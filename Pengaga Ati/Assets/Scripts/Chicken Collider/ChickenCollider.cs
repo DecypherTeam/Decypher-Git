@@ -18,7 +18,7 @@ namespace Examples
         {
             if (other.tag == "Player")
             {
-                Debug.Log("Chicken hit");
+                /*Debug.Log("Chicken hit");*/
                 player.pickedChic = false;
             }
         }

@@ -15,15 +15,20 @@ namespace Examples
 
         public Transform bulletDest;
         public float range;
-        //public GameObject crosshair;
+        /*public GameObject crosshair;*/
 
         public Camera secondCamera;
 
         public Transform pickUpDest;
         public Rigidbody pickItem;
         public bool pickedItem;
+
+
+        // List of variable for all chickens
         public Rigidbody pickChic;
         public bool pickedChic;
+        public Rigidbody pickChicSec;
+        public bool pickedChicSec;
 
         public bool playerShoot = false;
 
@@ -40,7 +45,7 @@ namespace Examples
             cameraTransform = Camera.main.transform;
             controller = GetComponent<CharacterController>();
 
-            //secondCamera.transform.position = new Vector3(0.5f, 3.4f, transform.position.z);
+            /*secondCamera.transform.position = new Vector3(0.5f, 3.4f, transform.position.z);*/
         }
 
         void Start()
@@ -77,10 +82,18 @@ namespace Examples
                     animator.SetBool("isPickup", true);
                 }
 
+                // List of calling pick chicken up functions
                 if (pickedChic == false)
                 {
                     PickChicUp();
                     animator.SetBool("isPickup", true);
+                    pickedChicSec = true;
+                }
+                if (pickedChicSec == false)
+                {
+                    PickChicUpSec();
+                    animator.SetBool("isPickup", true);
+                    pickedChic = true;
                 }
             }
 
@@ -93,7 +106,9 @@ namespace Examples
                     animator.SetBool("isPickup", false);
                 }
 
+                // List of calling pick chicken down functions
                 PickChicDown();
+                PickChicDownSec();
             }
 
             // Assigning the shooting mechanics to the shooting button
@@ -120,10 +135,12 @@ namespace Examples
         {
             pickedItem = true;
 
+            // List of booleans for picking chickens
             pickedChic = true;
+            pickedChicSec = true;
 
-            //float moveX = TCKInput.GetAxis( "Joystick", EAxisType.Horizontal );
-            //float moveY = TCKInput.GetAxis( "Joystick", EAxisType.Vertical );
+            /*float moveX = TCKInput.GetAxis( "Joystick", EAxisType.Horizontal );*/
+            /*float moveY = TCKInput.GetAxis( "Joystick", EAxisType.Vertical );*/
             
             // Assign the movement of the character to a joystick
             Vector2 move = TCKInput.GetAxis( "Joystick" ); // NEW func since ver 1.5.5
@@ -263,22 +280,44 @@ namespace Examples
             }
         }
 
+
+
+        // Lists of functions handling all chicken functions
+        // Function for chicken number 1 [START]
         private void PickChicUp()
         {
             Debug.Log("Pick Chicken");
             pickChic.useGravity = false;
             pickChic.transform.position = pickUpDest.position;
             pickChic.transform.parent = GameObject.Find("PickUpDestination").transform;
-            //pickChic.constraints = RigidbodyConstraints.FreezeAll;
+            /*pickChic.constraints = RigidbodyConstraints.FreezeAll;*/
         }
-
         private void PickChicDown()
         {
             Debug.Log("Unparent chicken");
             pickChic.transform.parent = null;
             pickChic.useGravity = true;
-            //pickedChic = true;
+            animator.SetBool("isPickup", false);
+            /*pickedChic = true;*/
         }
+        // Function for chicken number 1 [END]
+        // Function for chicken number 2 [START]
+        private void PickChicUpSec()
+        {
+            pickChicSec.useGravity = false;
+            pickChicSec.transform.position = pickUpDest.position;
+            pickChicSec.transform.parent = GameObject.Find("PickUpDestination").transform;
+        }
+        private void PickChicDownSec()
+        {
+            pickChicSec.transform.parent = null;
+            pickChicSec.useGravity = true;
+            animator.SetBool("isPickup", false);
+        }
+        // Function for chicken number 2 [END]
+
+
+
 
         // PlayerClicked
         public void PlayerClicked()

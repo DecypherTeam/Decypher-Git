@@ -18,8 +18,8 @@ namespace Examples
         {
             if (other.tag == "Player")
             {
-                Debug.Log("Chicken hit");
-                player.pickedChic = false;
+                /*Debug.Log("Chicken hit");*/
+                player.pickedChicSec = false;
             }
         }
     }
