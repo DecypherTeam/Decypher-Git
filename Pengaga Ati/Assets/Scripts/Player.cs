@@ -91,7 +91,9 @@ namespace Examples
                 {
                     PickDown();
                     animator.SetBool("isPickup", false);
-                } 
+                }
+
+                PickChicDown();
             }
 
             // Assigning the shooting mechanics to the shooting button
@@ -272,9 +274,10 @@ namespace Examples
 
         private void PickChicDown()
         {
+            Debug.Log("Unparent chicken");
             pickChic.transform.parent = null;
             pickChic.useGravity = true;
-            pickedChic = true;
+            //pickedChic = true;
         }
 
         // PlayerClicked
