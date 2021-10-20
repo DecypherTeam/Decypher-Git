@@ -267,7 +267,14 @@ namespace Examples
             pickChic.useGravity = false;
             pickChic.transform.position = pickUpDest.position;
             pickChic.transform.parent = GameObject.Find("PickUpDestination").transform;
-            pickChic.constraints = RigidbodyConstraints.FreezeAll;
+            //pickChic.constraints = RigidbodyConstraints.FreezeAll;
+        }
+
+        private void PickChicDown()
+        {
+            pickChic.transform.parent = null;
+            pickChic.useGravity = true;
+            pickedChic = true;
         }
 
         // PlayerClicked
