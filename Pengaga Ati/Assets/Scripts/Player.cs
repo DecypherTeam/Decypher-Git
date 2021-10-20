@@ -38,6 +38,8 @@ namespace Examples
 
         PlantInteraction plantInteraction;
 
+        GrowingCrop growingCrop;
+
         // Awake
         void Awake()
         {
@@ -54,6 +56,9 @@ namespace Examples
 
             GameObject thePlant = GameObject.Find("Plant1");
             plantInteraction = thePlant.GetComponent<PlantInteraction>();
+
+            GameObject theCrop = GameObject.Find("Crops");
+            growingCrop = theCrop.GetComponent<GrowingCrop>();
         }
 
         // Update
@@ -75,7 +80,13 @@ namespace Examples
 
             // Assigning the pick up mechanics to the pick up button
             if( TCKInput.GetAction( "pickBtn", EActionEvent.Press))
-            {
+            {   
+                if(growingCrop.harvestReadyToPick == true && growingCrop.playerHit == true)
+                {
+                    growingCrop.PlayerPickCrop();
+                    animator.SetBool("isPickup", true);
+                }
+               
                 if (pickedItem == false)
                 {
                     PickUp();
@@ -100,7 +111,13 @@ namespace Examples
             // Assigning the item to drop when the button is not pressed
             if (TCKInput.GetAction("pickBtn", EActionEvent.Up))
             {
-                if(plantInteraction.isDestroyed != true)
+                if (growingCrop.cropPickedUp == true)
+                {
+                    growingCrop.PlayerDropCrop();
+                    animator.SetBool("isPickup", false);
+                }
+
+                if (plantInteraction.isDestroyed != true)
                 {
                     PickDown();
                     animator.SetBool("isPickup", false);
@@ -145,13 +162,6 @@ namespace Examples
             // Assign the movement of the character to a joystick
             Vector2 move = TCKInput.GetAxis( "Joystick" ); // NEW func since ver 1.5.5
             PlayerMovement(move.x, move.y);
-
-
-            /*if (TCKInput.GetAxis("Joystick", EAxisType.Horizontal))
-            {
-                Debug.Log("more than 0");
-                //
-            }*/
         }
 
 
@@ -286,7 +296,7 @@ namespace Examples
         // Function for chicken number 1 [START]
         private void PickChicUp()
         {
-            Debug.Log("Pick Chicken");
+            /*Debug.Log("Pick Chicken");*/
             pickChic.useGravity = false;
             pickChic.transform.position = pickUpDest.position;
             pickChic.transform.parent = GameObject.Find("PickUpDestination").transform;
@@ -294,7 +304,7 @@ namespace Examples
         }
         private void PickChicDown()
         {
-            Debug.Log("Unparent chicken");
+            /*Debug.Log("Unparent chicken");*/
             pickChic.transform.parent = null;
             pickChic.useGravity = true;
             animator.SetBool("isPickup", false);
