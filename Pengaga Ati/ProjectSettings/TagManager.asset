@@ -9,6 +9,11 @@ TagManager:
   - Land
   - NPC
   - Plant
+  - Land 2
+  - Land 3
+  - Land 4
+  - Land 5
+  - Land 1
   layers:
   - Default
   - TransparentFX

@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace Examples
 {
-    public class GrowingCrop : MonoBehaviour
+    public class GrowingCrop1 : MonoBehaviour
     {
         PlantInteraction plantInteraction;
 
@@ -43,7 +42,7 @@ namespace Examples
         {
             playerHit = false;
 
-            if (plantInteraction.land0 == true)
+            if (plantInteraction.land1 == true)
             {
                 crop.gameObject.SetActive(true);
                 cropVisible = true;
@@ -116,4 +115,3 @@ namespace Examples
         }
     }
 }
-

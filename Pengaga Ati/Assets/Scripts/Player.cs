@@ -56,8 +56,8 @@ namespace Examples
         {
             animator = GetComponent<Animator>();
 
-            GameObject thePlant = GameObject.Find("Plant1");
-            plantInteraction = thePlant.GetComponent<PlantInteraction>();
+            GameObject theSeed = GameObject.Find("Seed1");
+            plantInteraction = theSeed.GetComponent<PlantInteraction>();
 
             GameObject theCrop = GameObject.Find("Crops");
             growingCrop = theCrop.GetComponent<GrowingCrop>();

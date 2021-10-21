@@ -30,7 +30,7 @@ namespace Examples
         {
             // Check if the player is going to interact with land
             Collider other = hit.collider;
-            if (other.tag == "Land")
+            if (other.name == "Crop Field")
             {
                 // Get the farming land component
                 FarmingLand land = other.GetComponent<FarmingLand>();

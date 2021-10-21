@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Examples
 {
-    public class PlantCollider : MonoBehaviour
+    public class SeedCollider : MonoBehaviour
     {
         Player player;
 
