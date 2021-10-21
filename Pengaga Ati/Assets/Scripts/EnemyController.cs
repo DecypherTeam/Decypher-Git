@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] float stoppingDistance;
+
     NavMeshAgent agent;
 
     GameObject target;
@@ -21,12 +23,27 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        GoToTarget();
+        float dist = Vector3.Distance(transform.position, target.transform.position);
+        if (dist < stoppingDistance)
+        {
+            StopEnemy();
+            animator.SetBool("isEating", true);
+        }
+        else
+        {
+            GoToTarget();
+        } 
     }
 
     private void GoToTarget()
     {
+        agent.isStopped = false;
         agent.SetDestination(target.transform.position);
-        animator.SetBool("isEating", true);
+        animator.SetBool("isRunning", true);
+    }
+
+    private void StopEnemy()
+    {
+        agent.isStopped = true;
     }
 }

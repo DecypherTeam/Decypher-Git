@@ -327,7 +327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &63209613
 Transform:
   m_ObjectHideFlags: 0
@@ -1603,7 +1603,7 @@ GameObject:
   - component: {fileID: 391051058}
   m_Layer: 0
   m_Name: Crops
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1650,8 +1650,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7590847, y: 3.2601137, z: 2.3459702}
-  m_Center: {x: -0.000934124, y: 1.7376876, z: -0.15599823}
+  m_Size: {x: 0.92972755, y: 3.2601132, z: 1.2586851}
+  m_Center: {x: 0.07719517, y: 1.7376876, z: -0.07647852}
 --- !u!114 &391051058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13035,6 +13035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5908ff80795988a498fd3c8796d23448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stoppingDistance: 4.5
 --- !u!54 &919132149612608239
 Rigidbody:
   m_ObjectHideFlags: 0
