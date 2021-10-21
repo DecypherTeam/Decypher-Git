@@ -19,6 +19,8 @@ namespace Examples
 
         public Camera secondCamera;
 
+        public GameObject sumpit;
+
         public Transform pickUpDest;
         public Rigidbody pickItem;
         public bool pickedItem;
@@ -134,11 +136,13 @@ namespace Examples
                 PlayerFiring();
                 animator.SetBool("isShooting", true);
                 secondCamera.gameObject.SetActive(true);
+                sumpit.gameObject.SetActive(true);
                 playerShoot = true;
             }
             else
             {
                 animator.SetBool("isShooting", false);
+                sumpit.gameObject.SetActive(false);
                 playerShoot = false;
             }
 
