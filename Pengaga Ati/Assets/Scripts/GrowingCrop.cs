@@ -17,6 +17,8 @@ namespace Examples
         public bool cropPickedUp;
         public bool playerHit;
 
+        public bool cropDestroyed;
+
         public float timer = 0f;
         public float growTime = 6f;
         public float maxSize = 2f;
@@ -102,6 +104,15 @@ namespace Examples
         {
             cropRb.transform.parent = null;
             cropRb.useGravity = true;
+        }
+
+        public IEnumerator WaitBeforeDestroy()
+        {
+            yield return new WaitForSeconds(3);
+            Destroy(this);
+            Destroy(crop);
+            cropDestroyed = true;
+            /*Debug.Log("Destroy gameObject");*/
         }
     }
 }

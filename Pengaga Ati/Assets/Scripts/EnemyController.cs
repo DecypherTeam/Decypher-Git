@@ -3,47 +3,69 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+namespace Examples
 {
-    [SerializeField] float stoppingDistance;
-
-    NavMeshAgent agent;
-
-    GameObject target;
-
-    Animator animator;
-
-    private void Start ()
+    public class EnemyController : MonoBehaviour
     {
-        agent = GetComponent<NavMeshAgent>();
-        target = GameObject.FindGameObjectWithTag("Plant");
+        [SerializeField] float stoppingDistance;
 
-        animator = GetComponent<Animator>();
-    }
+        NavMeshAgent agent;
 
-    private void Update()
-    {
-        float dist = Vector3.Distance(transform.position, target.transform.position);
-        if (dist < stoppingDistance)
+        GameObject target;
+
+        Animator animator;
+
+        // Variable for the script, GrowingCrop.cs
+        GrowingCrop growingCrop;
+
+        private void Start()
         {
-            StopEnemy();
-            animator.SetBool("isEating", true);
+            agent = GetComponent<NavMeshAgent>();
+            target = GameObject.FindGameObjectWithTag("Plant");
+
+            animator = GetComponent<Animator>();
+
+            // Reference to the script that holds the crops which is GrowingCrop.cs
+            GameObject theCrop = GameObject.Find("Crops");
+            growingCrop = theCrop.GetComponent<GrowingCrop>();
         }
-        else
+
+        private void Update()
         {
-            GoToTarget();
-        } 
-    }
+            float dist = Vector3.Distance(transform.position, target.transform.position);
+            if (dist < stoppingDistance)
+            {
+                StopEnemy();
+                animator.SetBool("isEating", true);
+                StartCoroutine(growingCrop.WaitBeforeDestroy());
+            }
+            else
+            {
+                GoToTarget();
+            }
 
-    private void GoToTarget()
-    {
-        agent.isStopped = false;
-        agent.SetDestination(target.transform.position);
-        animator.SetBool("isRunning", true);
-    }
+            if (growingCrop.cropDestroyed == true)
+            {
+                animator.SetBool("isEating", false);
+                animator.SetBool("isRunning", false);
+                Debug.Log("Crop destroyed");
+            }
+        }
 
-    private void StopEnemy()
-    {
-        agent.isStopped = true;
+        private void GoToTarget()
+        {
+            if(growingCrop.harvestReady == true)
+            {
+                agent.isStopped = false;
+                agent.SetDestination(target.transform.position);
+                animator.SetBool("isRunning", true);
+            }  
+        }
+
+        private void StopEnemy()
+        {
+            agent.isStopped = true;
+        }
     }
 }
+
