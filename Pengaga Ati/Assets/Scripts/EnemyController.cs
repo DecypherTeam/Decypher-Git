@@ -17,6 +17,13 @@ namespace Examples
 
         // Variable for the script, GrowingCrop.cs
         GrowingCrop growingCrop;
+        // Variable for the script, Player.cs
+        Player player;
+
+        Rigidbody rb;
+
+        public GameObject mesh;
+        public Material ghostMaterial;
 
         private void Start()
         {
@@ -25,9 +32,15 @@ namespace Examples
 
             animator = GetComponent<Animator>();
 
+            rb = GetComponent<Rigidbody>();
+
             // Reference to the script that holds the crops which is GrowingCrop.cs
             GameObject theCrop = GameObject.Find("Crops");
             growingCrop = theCrop.GetComponent<GrowingCrop>();
+
+            // Reference to the script that holds the player which is Player.cs
+            GameObject thePlayer = GameObject.Find("Player");
+            player = thePlayer.GetComponent<Player>();
         }
 
         private void Update()
@@ -48,8 +61,15 @@ namespace Examples
             {
                 animator.SetBool("isEating", false);
                 animator.SetBool("isRunning", false);
-                Debug.Log("Crop destroyed");
+                /*Debug.Log("Crop destroyed");*/
             }
+
+            // Trying to create bullet making contact with enemy and enemy die
+            /*float bulletdist = Vector3.Distance(transform.position, player.game.transform.position);
+            if (bulletdist < stoppingDistance)
+            {
+                Debug.Log("Bullet hit");
+            }*/
         }
 
         private void GoToTarget()
@@ -65,6 +85,31 @@ namespace Examples
         private void StopEnemy()
         {
             agent.isStopped = true;
+        }
+
+        public IEnumerator WaitBeforeGhost()
+        {
+            yield return new WaitForSeconds(2);
+            mesh.GetComponent<Renderer>().material = ghostMaterial;
+            rb.useGravity = false;
+            agent.baseOffset = 2f;
+            agent.speed = 2f;
+        }
+
+        void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.name == "Sphere")
+            {
+                animator.SetBool("isDead", true);
+                agent.speed = 0f;
+                StartCoroutine(WaitBeforeDie());
+            }
+        }
+
+        public IEnumerator WaitBeforeDie()
+        {
+            yield return new WaitForSeconds(2);
+            StartCoroutine(WaitBeforeGhost());
         }
     }
 }
