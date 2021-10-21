@@ -31,6 +31,8 @@ namespace Examples
         public bool pickedChic;
         public Rigidbody pickChicSec;
         public bool pickedChicSec;
+        public Rigidbody pickChicThird;
+        public bool pickedChicThird;
 
         public bool playerShoot = false;
 
@@ -101,12 +103,22 @@ namespace Examples
                     PickChicUp();
                     animator.SetBool("isPickup", true);
                     pickedChicSec = true;
+                    pickedChicThird = true;
                 }
                 if (pickedChicSec == false)
                 {
                     PickChicUpSec();
                     animator.SetBool("isPickup", true);
                     pickedChic = true;
+                    pickedChicThird = true;
+                }
+                if(pickedChicThird == false)
+                {
+                    PickChicUpThird();
+                    animator.SetBool("isPickup", true);
+                    pickedChic = true;
+                    pickedChicSec = true;
+
                 }
             }
 
@@ -128,6 +140,7 @@ namespace Examples
                 // List of calling pick chicken down functions
                 PickChicDown();
                 PickChicDownSec();
+                PickChicDownThird();
             }
 
             // Assigning the shooting mechanics to the shooting button
@@ -329,6 +342,20 @@ namespace Examples
             animator.SetBool("isPickup", false);
         }
         // Function for chicken number 2 [END]
+        // Function for chicken number 3 [START]
+        private void PickChicUpThird()
+        {
+            pickChicThird.useGravity = false;
+            pickChicThird.transform.position = pickUpDest.position;
+            pickChicThird.transform.parent = GameObject.Find("PickUpDestination").transform;
+        }
+        private void PickChicDownThird()
+        {
+            pickChicThird.transform.parent = null;
+            pickChicThird.useGravity = true;
+            animator.SetBool("isPickup", false);
+        }
+        // Function for chicken number 3 [END]
 
 
 

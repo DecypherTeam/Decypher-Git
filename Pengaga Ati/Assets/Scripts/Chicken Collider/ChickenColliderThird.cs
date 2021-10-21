@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChickenCollider1 : MonoBehaviour
+namespace Examples
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ChickenColliderThird : MonoBehaviour
     {
-        
-    }
+        Player player;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void Start()
+        {
+            GameObject thePlayer = GameObject.Find("Player");
+            player = thePlayer.GetComponent<Player>();
+        }
+
+        public void OnTriggerStay(Collider other)
+        {
+            if (other.tag == "Player")
+            {
+                /*Debug.Log("Chicken hit");*/
+                player.pickedChicThird = false;
+            }
+        }
     }
 }
+
