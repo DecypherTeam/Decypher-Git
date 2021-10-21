@@ -8,6 +8,7 @@ TagManager:
   - PickUp
   - Land
   - NPC
+  - Plant
   layers:
   - Default
   - TransparentFX

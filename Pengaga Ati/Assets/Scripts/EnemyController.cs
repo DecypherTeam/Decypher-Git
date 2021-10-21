@@ -1,26 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public float lookRadius = 10f;
+    NavMeshAgent agent;
 
-    // Start is called before the first frame update
-    void Start()
+    GameObject target;
+
+    Animator animator;
+
+    private void Start ()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
+        target = GameObject.FindGameObjectWithTag("Plant");
+
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        GoToTarget();
     }
 
-    void OnDrawGizmosSelected ()
+    private void GoToTarget()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
+        agent.SetDestination(target.transform.position);
+        animator.SetBool("isEating", true);
     }
 }
