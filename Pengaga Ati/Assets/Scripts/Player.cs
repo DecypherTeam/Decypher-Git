@@ -33,6 +33,8 @@ namespace Examples
         public bool pickedChicSec;
         public Rigidbody pickChicThird;
         public bool pickedChicThird;
+        public Rigidbody pickChicFourth;
+        public bool pickedChicFourth;
 
         public bool playerShoot = false;
 
@@ -104,6 +106,7 @@ namespace Examples
                     animator.SetBool("isPickup", true);
                     pickedChicSec = true;
                     pickedChicThird = true;
+                    pickedChicFourth = true;
                 }
                 if (pickedChicSec == false)
                 {
@@ -111,6 +114,7 @@ namespace Examples
                     animator.SetBool("isPickup", true);
                     pickedChic = true;
                     pickedChicThird = true;
+                    pickedChicFourth = true;
                 }
                 if(pickedChicThird == false)
                 {
@@ -118,7 +122,16 @@ namespace Examples
                     animator.SetBool("isPickup", true);
                     pickedChic = true;
                     pickedChicSec = true;
+                    pickedChicFourth = true;
 
+                }
+                if(pickedChicFourth == false)
+                {
+                    PickChicUpFourth();
+                    animator.SetBool("isPickup", true);
+                    pickedChic = true;
+                    pickedChicSec = true;
+                    pickedChicThird = true;
                 }
             }
 
@@ -141,6 +154,7 @@ namespace Examples
                 PickChicDown();
                 PickChicDownSec();
                 PickChicDownThird();
+                PickChicDownFourth();
             }
 
             // Assigning the shooting mechanics to the shooting button
@@ -172,6 +186,8 @@ namespace Examples
             // List of booleans for picking chickens
             pickedChic = true;
             pickedChicSec = true;
+            pickedChicThird = true;
+            pickedChicFourth = true;
 
             /*float moveX = TCKInput.GetAxis( "Joystick", EAxisType.Horizontal );*/
             /*float moveY = TCKInput.GetAxis( "Joystick", EAxisType.Vertical );*/
@@ -356,7 +372,20 @@ namespace Examples
             animator.SetBool("isPickup", false);
         }
         // Function for chicken number 3 [END]
-
+        // Function for chicken number 4 [START]
+        private void PickChicUpFourth()
+        {
+            pickChicFourth.useGravity = false;
+            pickChicFourth.transform.position = pickUpDest.position;
+            pickChicFourth.transform.parent = GameObject.Find("PickUpDestination").transform;
+        }
+        private void PickChicDownFourth()
+        {
+            pickChicFourth.transform.parent = null;
+            pickChicFourth.useGravity = true;
+            animator.SetBool("isPickup", false);
+        }
+        // Function for chicken number 4 [END]
 
 
 

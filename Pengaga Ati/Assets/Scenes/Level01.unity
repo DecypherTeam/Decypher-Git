@@ -12982,7 +12982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &919132148874108529
 GameObject:
   m_ObjectHideFlags: 0
@@ -13024,7 +13024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &919132149476401282
 GameObject:
   m_ObjectHideFlags: 0
@@ -13091,7 +13091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &919132149612608237
 GameObject:
   m_ObjectHideFlags: 0
@@ -22967,6 +22967,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5639405848510710288}
   - component: {fileID: 7477672114630300163}
+  - component: {fileID: 7750397243077777865}
+  - component: {fileID: 7750397243077777866}
   m_Layer: 0
   m_Name: polySurface1
   m_TagString: Untagged
@@ -22974,6 +22976,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &7750397243077777865
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7750397243077777864}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9395542, y: 1.7168823, z: 2.4494133}
+  m_Center: {x: -0.046967506, y: 0.8697403, z: 0.04156494}
+--- !u!114 &7750397243077777866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7750397243077777864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0dadeb145f12c34c9c270762513efcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7750397243157814107
 GameObject:
   m_ObjectHideFlags: 0
@@ -24010,13 +24037,15 @@ MonoBehaviour:
   sumpit: {fileID: 919132148251964446}
   pickUpDest: {fileID: 1352676329}
   pickItem: {fileID: 1244870920}
-  pickedItem: 0
+  pickedItem: 1
   pickChic: {fileID: 354402980}
-  pickedChic: 0
+  pickedChic: 1
   pickChicSec: {fileID: 660248658}
-  pickedChicSec: 0
+  pickedChicSec: 1
   pickChicThird: {fileID: 688938965}
-  pickedChicThird: 0
+  pickedChicThird: 1
+  pickChicFourth: {fileID: 819265231}
+  pickedChicFourth: 1
   playerShoot: 0
   joystick: {fileID: 3308325049753966822}
 --- !u!124 &8390943013129311470
